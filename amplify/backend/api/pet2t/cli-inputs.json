@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "pet2t",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "E:\\00000000-AWS\\amplify5\\pet2t\\amplify\\backend\\api\\pet2t\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authpet2tb5f96e8c"
+    }
+  }
+}

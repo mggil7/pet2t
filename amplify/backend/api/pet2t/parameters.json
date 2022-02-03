@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "pet2t",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authpet2tb5f96e8c",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
