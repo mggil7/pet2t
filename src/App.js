@@ -1,27 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 import {withAuthenticator} from '@aws-amplify/ui-react'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <form>
+            <input placeholder ='enter a name' name='petName'/> 
+            <input placeholder ='enter a description' name='petDescription'/>
+            <select name="petType">
+              <option value="none" disabled>
+                Please select a pet
+              </option>
+              <option value='dog'>Dog</option>
+              <option value='cat'>Cat</option>
+              <option value='rabbit'>Rabbit</option>
+              <option value='turtle'>Turtle</option>
+            </select>
+        </form>
     </div>
-  );
+
+
+  )
 }
 
 export default withAuthenticator(App);
