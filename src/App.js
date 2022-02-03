@@ -2,11 +2,31 @@
 import './App.css';
 
 import {withAuthenticator} from '@aws-amplify/ui-react'
+import {createPet} from './graphql/mutations'
+import { API } from 'aws-amplify'
 
 function App() {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+      await API.graphql({
+          query:createPet,
+          variables:{
+              input:{
+                name: ,
+                description:,
+                petType: 
+              }
+          }
+
+
+      })
+
+  }
   return (
     <div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <input placeholder ='enter a name' name='petName'/> 
             <input placeholder ='enter a description' name='petDescription'/>
             <select name="petType">
@@ -18,6 +38,7 @@ function App() {
               <option value='rabbit'>Rabbit</option>
               <option value='turtle'>Turtle</option>
             </select>
+            <button>Create a Pet</button>
         </form>
     </div>
 
