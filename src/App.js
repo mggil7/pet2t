@@ -2,10 +2,28 @@
 import './App.css';
 
 import {withAuthenticator} from '@aws-amplify/ui-react'
-import {createPet} from './graphql/mutations'
+
 import { API } from 'aws-amplify'
+import { useEffect, useState } from 'react';
+
+import {createPet} from './graphql/mutations'
+import { listPets } from './graphql/queries'
 
 function App() {
+
+  const [petData, setPetData] = useState([]);
+
+  useEffect (() => {
+      const fetchPets = async () => {
+        const res = await API.graphql({
+          query: listPets}) 
+
+        return res.data.listPets.items
+            }
+        fetchPets().then(pets => setPetData(pets))
+        
+        
+  }, [])
 
   const handleSubmit = async (e) => {
    e.preventDefault()
