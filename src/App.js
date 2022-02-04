@@ -63,6 +63,31 @@ function App() {
             </select>
             <button>Create a Pet</button>
         </form>
+        <main>
+          <ul> 
+            {petData.map((pet) => (
+              <li
+                key={pet.id}
+                style={{
+                  listStyle: 'none',
+                  border: '1px solid black',
+                  margin: '10px',
+                  width: '200px',
+                }}
+                >
+                  <article>
+                      <h3>{pet.name}</h3>
+                      <h5>{pet.type}</h5>
+                      <p>{pet.description}</p>
+
+
+                  </article>
+
+
+              </li>
+            ))}
+            </ul>
+        </main>
     </div>
 
 
