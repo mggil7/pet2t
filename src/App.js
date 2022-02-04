@@ -15,9 +15,9 @@ function App() {
               query:createPet,
               variables:{
                   input:{
-                    name: target.petName,
-                    description:target.petDescription,
-                    petType: target.petType
+                    name: target.petName.value,
+                    description:target.petDescription.value,
+                    petType: target.petType.value,
                   },
               },
 
