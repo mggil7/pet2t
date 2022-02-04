@@ -8,20 +8,25 @@ import { API } from 'aws-amplify'
 function App() {
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
-      await API.graphql({
-          query:createPet,
-          variables:{
-              input:{
-                name: ,
-                description:,
-                petType: 
-              }
-          }
+   e.preventDefault()
+    const {target} =e
+      try{
+          await API.graphql({
+              query:createPet,
+              variables:{
+                  input:{
+                    name: target.petName,
+                    description:target.petDescription,
+                    petType: target.petType
+                  },
+              },
 
 
       })
+    }catch(e){
+      console.log(e);
+
+    }
 
   }
   return (
