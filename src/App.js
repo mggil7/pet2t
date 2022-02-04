@@ -55,6 +55,7 @@ function App() {
   }
 
   const handlePetDelete = async (petId) => {
+    const newPetsList = petData.filter(pet => pet.id !== petId)
       await API.graphql({
           query:deletePet,
           variables:{
@@ -64,6 +65,9 @@ function App() {
   }
 }
 })
+
+setPetData (newPetsList)
+
   }
 
   return (
