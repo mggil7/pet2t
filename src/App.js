@@ -30,7 +30,7 @@ function App() {
    e.preventDefault()
     const {target} =e
       try{
-          await API.graphql({
+          const {data} = await API.graphql({
               query:createPet,
               variables:{
                   input:{
@@ -42,6 +42,11 @@ function App() {
 
 
       })
+
+      setPetData((currPetList) => {
+          return [...currPetList, data.createPet ]
+      })
+
     }catch(e){
       console.log(e);
 
