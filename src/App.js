@@ -6,7 +6,8 @@ import {withAuthenticator} from '@aws-amplify/ui-react'
 import { API } from 'aws-amplify'
 import { useEffect, useState } from 'react';
 
-import {createPet} from './graphql/mutations'
+import {createPet, deletePet} from './graphql/mutations'
+
 import { listPets } from './graphql/queries'
 
 function App() {
@@ -47,6 +48,19 @@ function App() {
     }
 
   }
+
+  const handlePetDelete = async (petId) => {
+      await API.graphql({
+          query:deletePet,
+          variables:{
+              input:{
+                  id:petId
+
+  }
+}
+})
+  }
+
   return (
     <div>
         <form onSubmit={handleSubmit}>
@@ -67,6 +81,7 @@ function App() {
           <ul> 
             {petData.map((pet) => (
               <li
+                onClick = {(e) => {handlePetDelete(pet.id)}}
                 key={pet.id}
                 style={{
                   listStyle: 'none',
